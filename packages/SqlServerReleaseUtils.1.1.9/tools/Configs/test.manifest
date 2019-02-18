@@ -1,0 +1,12 @@
+﻿<Settings>
+  <Steps>
+    <Step Name="Deploy Database X" Type="1DACPAC_DEPLOY" Dacpac="..\System\bin\Debug\System.dacpac" Profile="..\System\System.publish.xml" DatabaseName="$(EnvironmentName)_EBM">
+      <Property Name="IncludeTransactionalScripts" Value="False" />
+      <Property Name="DropObjectsNotInSource" Value="True" />
+      <Property Name="IgnoreAnsiNulls" Value="True" />
+      <Property Name="IgnoreQuotedIdentifiers" Value="True" />
+      <Variable Name="CubeLinkedServer" Value="EBMCUBE$(EnvironmentName)" />
+    </Step>
+    <Step Name="Deploy SSIS" Type="SSIS_DEPLOY" ssisProjectName="ETL" />
+  </Steps>
+</Settings>

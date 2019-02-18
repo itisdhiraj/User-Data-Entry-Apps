@@ -1,0 +1,28 @@
+﻿<Settings>
+  <Steps>
+    <Step Type="EXECUTE_SQL_SCRIPT" TargetDatabase="$(EnvironmentName)_EBM" FilePath="..\..\Code\EBM\Database_EBM\bin\debug\Scripts\Deployment\DisableJobs.sql"/>
+    <Step Type="EXECUTE_SQL_SCRIPT" TargetDatabase="msdb" FilePath="..\..\Code\EBM\Database_EBM\bin\debug\Scripts\Deployment\msdb.sql"/>
+    <Step Type="DACPAC_DEPLOY" Dacpac="..\..\Code\EBM\Database_EBM\bin\Debug\Database_EBM.dacpac" Profile="..\..\Code\EBM\Database_EBM\bin\Debug\DEV.EBM.publish.xml" DatabaseName="$(EnvironmentName)_EBM">
+      <Property Name="IncludeTransactionalScripts" Value="False" />
+      <Property Name="DropObjectsNotInSource" Value="True" />
+      <Variable Name="CubeLinkedServer" Value="EBMCUBE$(EnvironmentName)" />
+    </Step>
+    <Step Type="DACPAC_DEPLOY" Dacpac="..\..\Code\EBM\Database_Staging\bin\Output\Database_Staging.dacpac" Profile="..\..\Code\EBM\Database_Staging\bin\Output\DEV.Staging.publish.xml" DatabaseName="$(EnvironmentName)_EBM_Staging" />
+    <Step Type="DACPAC_DEPLOY" Dacpac="..\..\Code\EBM\Database_FuzzyIndexes\bin\Debug\Database_FuzzyIndexes.dacpac" Profile="..\..\Code\EBM\Database_FuzzyIndexes\bin\Debug\DEV.FuzzyIndexes.publish.xml" DatabaseName="$(EnvironmentName)_EBM_FuzzyIndexes" />
+    <Step Type="SSIS_DEPLOY" ssisProjectName="ETL" ispac="..\..\Code\EBM\ETL\bin\Development\ETL.ispac" ssisFolderName="REINS_$(EnvironmentName)"/>
+    <Step Type="EXECUTE_SQL_SCRIPT" TargetDatabase="$(EnvironmentName)_EBM_FuzzyIndexes" FilePath="..\..\Code\EBM\Database_FuzzyIndexes\bin\debug\Scripts\Create Fuzzy Index\1 Create Index.sql">
+      <Variable Name="Environment" Value="$(EnvironmentName)" />
+    </Step>
+    <Step Type="EXECUTE_SQL_FOLDER" TargetDatabase="msdb" FolderPath="..\..\Code\EBM\Database_EBM\bin\debug\Scripts\Jobs\">
+      <Variable Name="Environment" Value="REINS_$(EnvironmentName)" />
+      <Variable Name="EBMDBName" Value="$(EnvironmentName)_EBM" />
+      <Variable Name="Server" Value="$(ServerName)" />
+    </Step>
+    <Step Type="EXECUTE_SQL_FOLDER" TargetDatabase="master" FolderPath="..\..\Code\EBM\Database_EBM\bin\debug\Scripts\LinkedServers\">
+      <Variable Name="CubeLinkedServer" Value="EBMCUBE$(EnvironmentName)" />
+      <Variable Name="CubeDatabaseName" Value="$(CubeName)" />
+      <Variable Name="CubeServer" Value="$(ServerName)" />
+    </Step>
+    <Step Type="EXECUTE_SQL_SCRIPT" TargetDatabase="$(EnvironmentName)_EBM" FilePath="..\..\Code\EBM\Database_EBM\bin\debug\Scripts\Deployment\EnableJobs.sql"/>
+  </Steps>
+</Settings>
