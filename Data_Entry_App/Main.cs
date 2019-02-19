@@ -39,7 +39,7 @@ namespace Data_Entry_App
 
         private void BtnClear_Click(object sender, EventArgs e)
         {
-          TxtUser.Clear();
+          TxtUserName.Clear();
           TxtPassword.Clear();
         }
 
@@ -66,6 +66,11 @@ namespace Data_Entry_App
             {
                 this.Activate();
             }
+        }
+
+        private void LblUserName_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

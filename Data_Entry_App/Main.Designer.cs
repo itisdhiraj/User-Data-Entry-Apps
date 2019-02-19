@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TxtUser = new System.Windows.Forms.TextBox();
+            this.TxtUserName = new System.Windows.Forms.TextBox();
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.BtnClear = new System.Windows.Forms.Button();
@@ -36,31 +36,35 @@
             this.BtnExit = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LblUserName = new System.Windows.Forms.Label();
+            this.LblPassword = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // TxtUser
+            // TxtUserName
             // 
-            this.TxtUser.Location = new System.Drawing.Point(392, 21);
-            this.TxtUser.Name = "TxtUser";
-            this.TxtUser.Size = new System.Drawing.Size(141, 22);
-            this.TxtUser.TabIndex = 0;
+            this.TxtUserName.Location = new System.Drawing.Point(283, 21);
+            this.TxtUserName.Name = "TxtUserName";
+            this.TxtUserName.Size = new System.Drawing.Size(250, 22);
+            this.TxtUserName.TabIndex = 0;
             // 
             // TxtPassword
             // 
-            this.TxtPassword.Location = new System.Drawing.Point(392, 110);
+            this.TxtPassword.Location = new System.Drawing.Point(283, 110);
             this.TxtPassword.Name = "TxtPassword";
-            this.TxtPassword.Size = new System.Drawing.Size(141, 22);
+            this.TxtPassword.Size = new System.Drawing.Size(250, 22);
             this.TxtPassword.TabIndex = 1;
             this.TxtPassword.UseSystemPasswordChar = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.TxtUser);
+            this.groupBox1.Controls.Add(this.LblPassword);
+            this.groupBox1.Controls.Add(this.LblUserName);
+            this.groupBox1.Controls.Add(this.TxtUserName);
             this.groupBox1.Controls.Add(this.TxtPassword);
             this.groupBox1.Location = new System.Drawing.Point(111, 86);
             this.groupBox1.Name = "groupBox1";
@@ -120,6 +124,13 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(108, 26);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
@@ -132,12 +143,26 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem.Text = "Help";
             // 
-            // exitToolStripMenuItem
+            // LblUserName
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.LblUserName.AutoSize = true;
+            this.LblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblUserName.Location = new System.Drawing.Point(70, 26);
+            this.LblUserName.Name = "LblUserName";
+            this.LblUserName.Size = new System.Drawing.Size(88, 17);
+            this.LblUserName.TabIndex = 2;
+            this.LblUserName.Text = "User Name";
+            this.LblUserName.Click += new System.EventHandler(this.LblUserName_Click);
+            // 
+            // LblPassword
+            // 
+            this.LblPassword.AutoSize = true;
+            this.LblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPassword.Location = new System.Drawing.Point(70, 115);
+            this.LblPassword.Name = "LblPassword";
+            this.LblPassword.Size = new System.Drawing.Size(77, 17);
+            this.LblPassword.TabIndex = 3;
+            this.LblPassword.Text = "Password";
             // 
             // Main
             // 
@@ -164,7 +189,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox TxtUser;
+        private System.Windows.Forms.TextBox TxtUserName;
         private System.Windows.Forms.TextBox TxtPassword;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button BtnClear;
@@ -175,6 +200,8 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.Label LblPassword;
+        private System.Windows.Forms.Label LblUserName;
     }
 }
 

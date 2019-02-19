@@ -10,13 +10,14 @@ using System.Text;
 using System.Windows.Forms;
 using ADOX;
 using ADODB;
+using DataTypeEnum = ADOX.DataTypeEnum;
 
 
 namespace Data_Entry_App
 {
     public partial class Admin : Form
     {
-       
+        private const string ConnectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data source = C:\\Temp\\UsersData.accdb;  Persist Security Info=False;";
 
         public Admin()
         {
@@ -61,101 +62,97 @@ namespace Data_Entry_App
                 throw;
             }
         }
+        private Catalog OpenDatabase()
+        {
+            Catalog catalog = new Catalog();
+            Connection connection = new Connection();
 
+            try
+            {
+                connection.Open(ConnectionString);
+                catalog.ActiveConnection = connection;
+            }
+            catch (Exception)
+            {
+                catalog.Create(ConnectionString);
+            }
+            return catalog;
+        }
+
+        private void CreateDatabase()
+        {
+
+           string cn = @"Provider = Microsoft.ACE.OLEDB.12.0; Data source = C:\\Temp\\UsersData.accdb;  Persist Security Info=False;";
+                //cn += AppDomain.CurrentDomain.BaseDirectory.ToString() + "test.mdb"; 
+                try
+                {
+                    OleDbConnection connection = new OleDbConnection(cn);
+                    object[] objArrRestrict;
+                    objArrRestrict = new object[] { null, null, null, "TABLE" };
+                    connection.Open();
+                    DataTable schemaTable = connection.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, objArrRestrict);
+                    connection.Close();
+                    string[] list;
+                    if (schemaTable.Rows.Count > 0)
+                    {
+                        list = new string[schemaTable.Rows.Count];
+                        int i = 0;
+                        foreach (DataRow row in schemaTable.Rows)
+                        {
+                            list[i++] = row["TABLE_NAME"].ToString();
+                        }
+                        for (i = 0; i < list.Length; i++)
+                        {
+                            if (list[i] == "USERDATA")
+                            {
+                                string deletedl = "DROP TABLE TEMP";
+                                using (OleDbConnection conn = new OleDbConnection(cn))
+                                {
+                                    using (OleDbCommand cmd = new OleDbCommand(deletedl, conn))
+                                    {
+
+                                        conn.Open();
+                                        cmd.ExecuteNonQuery();
+                                        conn.Close();
+                                    }
+                                }
+                                break;
+                            }
+                        }
+                    }
+                    string ddl = "CREATE TABLE USERDATA (USERID INTEGER NOT NULL,[FIRSTNAME] TEXT(20), [LASTNAME] TEXT(20), [USERNAME] TEXT(20), [USEREMAIL] TEXT(20), [PASSWORD] TEXT(20), [USERDOB] TEXT(20))";
+                    using (OleDbConnection conn = new OleDbConnection(cn))
+                    {
+                        using (OleDbCommand cmd = new OleDbCommand(ddl, conn))
+                        {
+                            conn.Open();
+                            cmd.ExecuteNonQuery();
+                            conn.Close();
+                        }
+                    }
+                    MessageBox.Show("A new Data Table is successfully Created");
+                }
+                catch (System.Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+          
+
+            
+        }
         private void btn_AddUser_Click(object sender, EventArgs e)
         {
             
             try
             {
-                if ( File.Exists("C:\\Temp\\Users.accdb"))
+                if (File.Exists("C:\\Temp\\UsersData.accdb"))
                 {
-
+                    CreateDatabase();
+                   // MessageBox.Show("File is already exist");
                 }
                 else
                 {
-                    try
-                    {
-                        ADOX.Catalog catalog = new Catalog();
-                        catalog.Create(@"Provider = Microsoft.ACE.OLEDB.12.0; Data source = C:\Temp\Users.accdb");
-
-                        string DataFile = "C:\\Temp\\Users.accdb";
-                        string myConnection = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\" + DataFile;
-
-                        Table table = new Table();
-                        table.Name = "UsersData";
-
-                        // Column 1 (id)
-                        ADOX.Column idCol = new ADOX.Column();
-                        idCol.Name = "Id"; // The name of the column
-                        idCol.ParentCatalog = catalog;
-                        idCol.Type = ADOX.DataTypeEnum.adInteger; // Indicates a four byte signed integer.
-                        idCol.Properties["AutoIncrement"].Value =
-                            true; // Enable the auto increment property for this column.
-                        
-                        // Column 2 (Name)
-                        ADOX.Column firstnameCol = new ADOX.Column();
-                        firstnameCol.Name = "Firstname"; // The name of the column
-                        firstnameCol.ParentCatalog = catalog;
-                        firstnameCol.Type = ADOX.DataTypeEnum.adVarWChar; // Indicates a string value type.
-                        firstnameCol.DefinedSize = 60; // 60 characters max.
-
-
-                        // Column 3 (Surname)
-                        ADOX.Column lastnameCol = new ADOX.Column();
-                        lastnameCol.Name = "Lastname"; // The name of the column
-                        lastnameCol.ParentCatalog = catalog;
-                        lastnameCol.Type = ADOX.DataTypeEnum.adVarWChar; // Indicates a string value type.
-                        lastnameCol.DefinedSize = 60; // 60 characters max.
-
-                        // Column 4 (Username)
-                        ADOX.Column usernameCol = new ADOX.Column();
-                        usernameCol.Name = "Username"; // The name of the column
-                        usernameCol.ParentCatalog = catalog;
-                        usernameCol.Type = ADOX.DataTypeEnum.adVarWChar; // Indicates a string value type.
-                        usernameCol.DefinedSize = 60; // 60 characters max.
-
-                        // Column 5 (Password)
-                        ADOX.Column passwordCol = new ADOX.Column();
-                        passwordCol.Name = "Password"; // The name of the column
-                        passwordCol.ParentCatalog = catalog;
-                        passwordCol.Type = ADOX.DataTypeEnum.adVarWChar; // Indicates a string value type.
-                        passwordCol.DefinedSize = 60; // 60 characters max.
-
-                        //Column 5 (Email)
-                        ADOX.Column emailIdCol = new ADOX.Column();
-                        emailIdCol.Name = "EmailId"; // The name of the column
-                        emailIdCol.ParentCatalog = catalog;
-                        emailIdCol.Type = ADOX.DataTypeEnum.adVarWChar; // Indicates a string value type.
-                        emailIdCol.DefinedSize = 60; // 60 characters max.
-
-                        //Column 6 (DOB)
-                        ADOX.Column dobCol = new ADOX.Column();
-                        dobCol.Name = "DateOfBirth"; // The name of the column
-                        dobCol.ParentCatalog = catalog;
-                        dobCol.Type = ADOX.DataTypeEnum.adVarWChar; // Indicates a string value type.
-                        dobCol.DefinedSize = 20; // 60 characters max.
-
-                        table.Columns.Append(idCol); // Add the Id column to the table.
-                        table.Columns.Append(firstnameCol); // Add the First Name column to the table.
-                        table.Columns.Append(lastnameCol); // Add the Last Name column to the table.
-                        table.Columns.Append(usernameCol); // Add the Username column to the table.
-                        table.Columns.Append(passwordCol); // Add the Password column to the table.
-                        table.Columns.Append(emailIdCol); // Add the Email-Id column to the table.
-                        table.Columns.Append(dobCol); // Add the DOB column to the table.
-
-
-                        catalog.Tables.Append(table); // Add the table to our database.             
-
-                        System.Runtime.InteropServices.Marshal.FinalReleaseComObject(table);
-                        System.Runtime.InteropServices.Marshal.FinalReleaseComObject(catalog.Tables);
-                        System.Runtime.InteropServices.Marshal.FinalReleaseComObject(catalog.ActiveConnection);
-                        System.Runtime.InteropServices.Marshal.FinalReleaseComObject(catalog);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-
+                    CreateDatabase();
 
                 }
             }
@@ -170,7 +167,7 @@ namespace Data_Entry_App
             try
             {
                 OpenFileDialog fdlg = new OpenFileDialog();
-                fdlg.InitialDirectory = @"c:\";
+                fdlg.InitialDirectory = @"c:\Temp";
                 fdlg.Filter = "Access 2000-2003 (*.mdb)|*.mdb|Access 2007 or Later(*.accdb)| *.accdb|CSV files (*.csv)| *.csv";
                 fdlg.FilterIndex = 2;
                 fdlg.CheckFileExists = true;
