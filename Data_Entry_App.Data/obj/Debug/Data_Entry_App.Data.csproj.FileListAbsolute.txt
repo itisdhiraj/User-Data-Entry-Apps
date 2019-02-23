@@ -1,0 +1,6 @@
+C:\Users\i347925\Desktop\Projects\Data_Entry_App\Data_Entry_App.Data\bin\Debug\Data_Entry_App.Data.dll
+C:\Users\i347925\Desktop\Projects\Data_Entry_App\Data_Entry_App.Data\bin\Debug\Data_Entry_App.Data.pdb
+C:\Users\i347925\Desktop\Projects\Data_Entry_App\Data_Entry_App.Data\obj\Debug\Data_Entry_App.Data.csprojAssemblyReference.cache
+C:\Users\i347925\Desktop\Projects\Data_Entry_App\Data_Entry_App.Data\obj\Debug\Data_Entry_App.Data.csproj.CoreCompileInputs.cache
+C:\Users\i347925\Desktop\Projects\Data_Entry_App\Data_Entry_App.Data\obj\Debug\Data_Entry_App.Data.dll
+C:\Users\i347925\Desktop\Projects\Data_Entry_App\Data_Entry_App.Data\obj\Debug\Data_Entry_App.Data.pdb
