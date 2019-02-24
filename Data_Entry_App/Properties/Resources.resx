@@ -126,6 +126,9 @@
   <data name="Delete_Successful_Message_Title" xml:space="preserve">
     <value>Delete Successful</value>
   </data>
+  <data name="Error_Message_Header" xml:space="preserve">
+    <value>Please check the following.</value>
+  </data>
   <data name="Export_Button_Text" xml:space="preserve">
     <value>Export</value>
   </data>
@@ -152,5 +155,80 @@
   </data>
   <data name="Print_Print_Button_Text" xml:space="preserve">
     <value>Print</value>
+  </data>
+  <data name="Registration_DateOfBirth_Label_Text" xml:space="preserve">
+    <value>Date of birth</value>
+  </data>
+  <data name="Registration_Error_Message" xml:space="preserve">
+    <value>Registration failed</value>
+  </data>
+  <data name="Registration_Error_Message_Title" xml:space="preserve">
+    <value>Registration error</value>
+  </data>
+  <data name="Registration_HealthStatus_Label_Text" xml:space="preserve">
+    <value>Health status</value>
+  </data>
+  <data name="Registration_HealthStatus_Select_Text" xml:space="preserve">
+    <value>Please select health status.</value>
+  </data>
+  <data name="Registration_MaritalStatus_Label_Text" xml:space="preserve">
+    <value>Marital status</value>
+  </data>
+  <data name="Registration_MaritalStatus_Select_Text" xml:space="preserve">
+    <value>Please select marital status.</value>
+  </data>
+  <data name="Registration_Name_Label_Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Registration_Name_Required_Text" xml:space="preserve">
+    <value>Name is required.</value>
+  </data>
+  <data name="Registration_Register_Button_Text" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Registration_Role_Label_Text" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="Registration_Role_Select_Text" xml:space="preserve">
+    <value>Please select a User Role</value>
+  </data>
+  <data name="Registration_Salary_Label_Text" xml:space="preserve">
+    <value>Salary</value>
+  </data>
+  <data name="Registration_Successful_Message" xml:space="preserve">
+    <value>New member registered successfully!</value>
+  </data>
+  <data name="Registration_Successful_Message_Title" xml:space="preserve">
+    <value>Registration Successful</value>
+  </data>
+  <data name="Report_Header" xml:space="preserve">
+    <value>Social Member Club - Members</value>
+  </data>
+  <data name="Search_Refresh_Button_Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Search_Search_Button_Text" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="System_Error_Message" xml:space="preserve">
+    <value>Oops! System error. Please contact administrator.</value>
+  </data>
+  <data name="System_Error_Message_Title" xml:space="preserve">
+    <value>Error - Message</value>
+  </data>
+  <data name="Update_Button_Text" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Update_Error_Message_Title" xml:space="preserve">
+    <value>Update error</value>
+  </data>
+  <data name="Update_Successful_Message" xml:space="preserve">
+    <value>Member details updated successfully</value>
+  </data>
+  <data name="Update_Successful_Message_Title" xml:space="preserve">
+    <value>Update successfull</value>
   </data>
 </root>

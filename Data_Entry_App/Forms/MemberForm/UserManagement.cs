@@ -67,6 +67,17 @@ namespace Data_Entry_App.Forms.MemberForm
                 throw;
             }
         }
+
+        private string errorMessage;
+        private void AddErrorMessage(string error)
+        {
+            if (this.errorMessage == string.Empty)
+            {
+                this.errorMessage = Resources.Error_Message_Header + "\n\n";
+            }
+
+            this.errorMessage += error + "\n";
+        }
         private bool ValidateRegistration()
         {
             this.errorMessage = string.Empty;
@@ -83,7 +94,7 @@ namespace Data_Entry_App.Forms.MemberForm
 
             if (cmbOccupation.SelectedIndex == -1)
             {
-                this.AddErrorMessage(Resources.Registration_Occupation_Select_Text);
+                this.AddErrorMessage(Resources.Registration_Role_Select_Text);
             }
 
             if (cmbMaritalStatus.SelectedIndex == -1)
