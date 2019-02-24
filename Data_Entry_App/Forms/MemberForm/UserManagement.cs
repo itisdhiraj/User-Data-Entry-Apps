@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Data_Entry_App.Properties;
 
 namespace Data_Entry_App.Forms.MemberForm
 {
@@ -66,7 +67,37 @@ namespace Data_Entry_App.Forms.MemberForm
                 throw;
             }
         }
+        private bool ValidateRegistration()
+        {
+            this.errorMessage = string.Empty;
 
+            if (TxtFirstName.Text.Trim() == string.Empty)
+            {
+                this.AddErrorMessage(Resources.Registration_Name_Required_Text);
+            }
+
+            if (TxtLastName.Text.Trim() == string.Empty)
+            {
+                this.AddErrorMessage(Resources.Registration_Name_Required_Text);
+            }
+
+            if (cmbOccupation.SelectedIndex == -1)
+            {
+                this.AddErrorMessage(Resources.Registration_Occupation_Select_Text);
+            }
+
+            if (cmbMaritalStatus.SelectedIndex == -1)
+            {
+                this.AddErrorMessage(Resources.Registration_MaritalStatus_Select_Text);
+            }
+
+            if (cmbHealthStatus.SelectedIndex == -1)
+            {
+                this.AddErrorMessage(Resources.Registration_HealthStatus_Select_Text);
+            }
+
+            return this.errorMessage != string.Empty ? false : true;
+        }
         private void btn_AddUser_Click(object sender, EventArgs e)
         {
 
