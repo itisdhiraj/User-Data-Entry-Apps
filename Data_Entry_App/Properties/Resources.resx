@@ -159,6 +159,12 @@
   <data name="Registration_DateOfBirth_Label_Text" xml:space="preserve">
     <value>Date of birth</value>
   </data>
+  <data name="Registration_Email_Label_Text" xml:space="preserve">
+    <value>Email ID</value>
+  </data>
+  <data name="Registration_Email_Required_Text" xml:space="preserve">
+    <value>Email is Required</value>
+  </data>
   <data name="Registration_Error_Message" xml:space="preserve">
     <value>Registration failed</value>
   </data>
@@ -183,6 +189,12 @@
   <data name="Registration_Name_Required_Text" xml:space="preserve">
     <value>Name is required.</value>
   </data>
+  <data name="Registration_Password_Label_Text" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Registration_Password_Required_Text" xml:space="preserve">
+    <value>Password is Required</value>
+  </data>
   <data name="Registration_Register_Button_Text" xml:space="preserve">
     <value>Register</value>
   </data>
@@ -192,9 +204,6 @@
   <data name="Registration_Role_Select_Text" xml:space="preserve">
     <value>Please select a User Role</value>
   </data>
-  <data name="Registration_Salary_Label_Text" xml:space="preserve">
-    <value>Salary</value>
-  </data>
   <data name="Registration_Successful_Message" xml:space="preserve">
     <value>New member registered successfully!</value>
   </data>
@@ -202,16 +211,13 @@
     <value>Registration Successful</value>
   </data>
   <data name="Report_Header" xml:space="preserve">
-    <value>Social Member Club - Members</value>
+    <value>User Management- Members</value>
   </data>
   <data name="Search_Refresh_Button_Text" xml:space="preserve">
     <value>Refresh</value>
   </data>
   <data name="Search_Search_Button_Text" xml:space="preserve">
     <value>Search</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value />
   </data>
   <data name="System_Error_Message" xml:space="preserve">
     <value>Oops! System error. Please contact administrator.</value>

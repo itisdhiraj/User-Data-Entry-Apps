@@ -80,11 +80,11 @@ namespace Data_Entry_App.Forms.MemberForm
         }
         private bool ValidateRegistration()
         {
-            this.errorMessage = string.Empty;
+            errorMessage = string.Empty;
 
             if (TxtFirstName.Text.Trim() == string.Empty)
             {
-                this.AddErrorMessage(Resources.Registration_Name_Required_Text);
+                AddErrorMessage(Resources.Registration_Name_Required_Text);
             }
 
             if (TxtLastName.Text.Trim() == string.Empty)
@@ -92,7 +92,12 @@ namespace Data_Entry_App.Forms.MemberForm
                 this.AddErrorMessage(Resources.Registration_Name_Required_Text);
             }
 
-            if (cmbOccupation.SelectedIndex == -1)
+            if (TxtEmail.Text.Trim() == String.Empty)
+            {
+                AddErrorMessage(Resources.Registration_Email_Required_Text);
+            }
+
+            if (CMBUserRole.SelectedIndex == -1)
             {
                 this.AddErrorMessage(Resources.Registration_Role_Select_Text);
             }

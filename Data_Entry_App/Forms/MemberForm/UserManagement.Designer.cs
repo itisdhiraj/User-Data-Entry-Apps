@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TxtHeader = new System.Windows.Forms.TextBox();
             this.TabControlUser = new System.Windows.Forms.TabControl();
             this.TabPageNewUser = new System.Windows.Forms.TabPage();
@@ -45,7 +45,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lblOccupationRequired = new System.Windows.Forms.Label();
             this.lblOccupation = new System.Windows.Forms.Label();
-            this.cmbOccupation = new System.Windows.Forms.ComboBox();
+            this.CMBUserRole = new System.Windows.Forms.ComboBox();
             this.lblMaritalStatusRequired = new System.Windows.Forms.Label();
             this.cmbMaritalStatus = new System.Windows.Forms.ComboBox();
             this.lblMaritalStatus = new System.Windows.Forms.Label();
@@ -155,7 +155,7 @@
             this.TabPageNewUser.Padding = new System.Windows.Forms.Padding(3);
             this.TabPageNewUser.Size = new System.Drawing.Size(1492, 762);
             this.TabPageNewUser.TabIndex = 0;
-            this.TabPageNewUser.Text = "New Registration";
+            this.TabPageNewUser.Text = "User Registration";
             // 
             // tabControl2
             // 
@@ -179,7 +179,7 @@
             this.TabPageUserReg.Controls.Add(this.label5);
             this.TabPageUserReg.Controls.Add(this.lblOccupationRequired);
             this.TabPageUserReg.Controls.Add(this.lblOccupation);
-            this.TabPageUserReg.Controls.Add(this.cmbOccupation);
+            this.TabPageUserReg.Controls.Add(this.CMBUserRole);
             this.TabPageUserReg.Controls.Add(this.lblMaritalStatusRequired);
             this.TabPageUserReg.Controls.Add(this.cmbMaritalStatus);
             this.TabPageUserReg.Controls.Add(this.lblMaritalStatus);
@@ -330,15 +330,15 @@
             this.lblOccupation.TabIndex = 51;
             this.lblOccupation.Text = "User Role";
             // 
-            // cmbOccupation
+            // CMBUserRole
             // 
-            this.cmbOccupation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbOccupation.FormattingEnabled = true;
-            this.cmbOccupation.Location = new System.Drawing.Point(511, 212);
-            this.cmbOccupation.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbOccupation.Name = "cmbOccupation";
-            this.cmbOccupation.Size = new System.Drawing.Size(201, 24);
-            this.cmbOccupation.TabIndex = 50;
+            this.CMBUserRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CMBUserRole.FormattingEnabled = true;
+            this.CMBUserRole.Location = new System.Drawing.Point(511, 212);
+            this.CMBUserRole.Margin = new System.Windows.Forms.Padding(4);
+            this.CMBUserRole.Name = "CMBUserRole";
+            this.CMBUserRole.Size = new System.Drawing.Size(201, 24);
+            this.CMBUserRole.TabIndex = 50;
             // 
             // lblMaritalStatusRequired
             // 
@@ -885,14 +885,14 @@
             this.dataGridViewMembers.AllowUserToAddRows = false;
             this.dataGridViewMembers.AllowUserToOrderColumns = true;
             this.dataGridViewMembers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewMembers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMembers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewMembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMembers.Location = new System.Drawing.Point(9, 230);
             this.dataGridViewMembers.Margin = new System.Windows.Forms.Padding(4);
@@ -1110,7 +1110,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblOccupationRequired;
         private System.Windows.Forms.Label lblOccupation;
-        private System.Windows.Forms.ComboBox cmbOccupation;
+        private System.Windows.Forms.ComboBox CMBUserRole;
         private System.Windows.Forms.Label lblMaritalStatusRequired;
         private System.Windows.Forms.ComboBox cmbMaritalStatus;
         private System.Windows.Forms.Label lblMaritalStatus;

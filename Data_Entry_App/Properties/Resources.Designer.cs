@@ -187,6 +187,24 @@ namespace Data_Entry_App.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email ID.
+        /// </summary>
+        internal static string Registration_Email_Label_Text {
+            get {
+                return ResourceManager.GetString("Registration_Email_Label_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email is Required.
+        /// </summary>
+        internal static string Registration_Email_Required_Text {
+            get {
+                return ResourceManager.GetString("Registration_Email_Required_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Registration failed.
         /// </summary>
         internal static string Registration_Error_Message {
@@ -259,6 +277,24 @@ namespace Data_Entry_App.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        internal static string Registration_Password_Label_Text {
+            get {
+                return ResourceManager.GetString("Registration_Password_Label_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password is Required.
+        /// </summary>
+        internal static string Registration_Password_Required_Text {
+            get {
+                return ResourceManager.GetString("Registration_Password_Required_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         internal static string Registration_Register_Button_Text {
@@ -286,15 +322,6 @@ namespace Data_Entry_App.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Salary.
-        /// </summary>
-        internal static string Registration_Salary_Label_Text {
-            get {
-                return ResourceManager.GetString("Registration_Salary_Label_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to New member registered successfully!.
         /// </summary>
         internal static string Registration_Successful_Message {
@@ -313,7 +340,7 @@ namespace Data_Entry_App.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Social Member Club - Members.
+        ///   Looks up a localized string similar to User Management- Members.
         /// </summary>
         internal static string Report_Header {
             get {
@@ -336,15 +363,6 @@ namespace Data_Entry_App.Properties {
         internal static string Search_Search_Button_Text {
             get {
                 return ResourceManager.GetString("Search_Search_Button_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string String1 {
-            get {
-                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
         
