@@ -7,16 +7,68 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Data_Entry_App.Properties;
+using Data_Entry_App.Data.BusinessServices;
+
 
 namespace Data_Entry_App.Forms.MemberForm
 {
     public partial class UserManagement : Form
     {
+        private int memberId ;
+        private readonly IUserDataService UserDataService;
+
         public UserManagement()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedDialog;
             StartPosition = FormStartPosition.CenterScreen;
+            this.UserDataService = new UserDataService();
+            this.ResetRegistration();
+            this.ResetSearch();
+            this.InitializeDropDownList();
+            this.InitializeDataGridViewStyle();
+            this.InitializeResourceString();
+
+        }
+        private void InitializeDataGridViewStyle()
+        {
+            // Setting the style of the DataGridView control
+            dataGridViewMembers.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 9, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewMembers.ColumnHeadersDefaultCellStyle.BackColor = SystemColors.ControlDark;
+            dataGridViewMembers.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewMembers.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewMembers.DefaultCellStyle.Font = new Font("Tahoma", 8, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewMembers.DefaultCellStyle.BackColor = Color.Empty;
+            dataGridViewMembers.AlternatingRowsDefaultCellStyle.BackColor = SystemColors.Info;
+            dataGridViewMembers.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            dataGridViewMembers.GridColor = SystemColors.ControlDarkDark;
+        }
+
+        private void InitializeResourceString()
+        {
+
+        }
+
+        private void InitializeDropDownList()
+        {
+
+        }
+        private void ResetSearch()
+        {
+            cmbSearchMaritalStatus.SelectedIndex = -1;
+            cmbSearchUserRole.SelectedIndex = -1;
+            cmbOperand.SelectedIndex = 0;
+        }
+        private void ResetRegistration()
+        {
+            TxtFirstName.Text = string.Empty;
+            TxtLastName.Text = string.Empty;
+            TxtPassword.Text = string.Empty;
+            TxtEmail.Text = string.Empty;
+            TxtUserName.Text = string.Empty;
+            CMBUserRole.SelectedIndex = -1;
+            cmbHealthStatus.SelectedIndex = -1;
+            cmbMaritalStatus.SelectedIndex = -1;
         }
 
         private void BtnLogout_Click(object sender, EventArgs e)
@@ -46,14 +98,17 @@ namespace Data_Entry_App.Forms.MemberForm
         {
             try
             {
-                OpenFileDialog fdlg = new OpenFileDialog();
-                fdlg.InitialDirectory = @"c:\Temp";
-                fdlg.Filter = "Access 2000-2003 (*.mdb)|*.mdb|Access 2007 or Later(*.accdb)| *.accdb|CSV files (*.csv)| *.csv";
-                fdlg.FilterIndex = 2;
-                fdlg.CheckFileExists = true;
-                fdlg.RestoreDirectory = true;
-                fdlg.ReadOnlyChecked = true;
-                fdlg.ShowReadOnly = true;
+                OpenFileDialog fdlg = new OpenFileDialog
+                {
+                    InitialDirectory = @"c:\Temp",
+                    Filter =
+                        "Access 2000-2003 (*.mdb)|*.mdb|Access 2007 or Later(*.accdb)| *.accdb|CSV files (*.csv)| *.csv",
+                    FilterIndex = 2,
+                    CheckFileExists = true,
+                    RestoreDirectory = true,
+                    ReadOnlyChecked = true,
+                    ShowReadOnly = true
+                };
                 if (fdlg.ShowDialog() == DialogResult.OK)
                 {
                     TxtCheckFile.Text = fdlg.FileName;
@@ -114,9 +169,55 @@ namespace Data_Entry_App.Forms.MemberForm
 
             return this.errorMessage != string.Empty ? false : true;
         }
-        private void btn_AddUser_Click(object sender, EventArgs e)
+        private void BtnAddUser_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var flag = this.UserDataService.DeleteUserData(this.memberId);
+               
+                if (flag)
+                {
+                    DataTable data = this.UserDataService.GetAllUserData();
+                    LoadDataGridView(data);
+
+                    MessageBox.Show(
+                        Resources.Delete_Successful_Message,
+                        Resources.Delete_Successful_Message_Title,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ShowErrorMessage(ex);
+            }
+        }
+        private void ShowErrorMessage(Exception ex)
+        {
+            MessageBox.Show(
+                ex.Message,
+                //Resources.System_Error_Message, 
+                Resources.System_Error_Message_Title,
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+        }
+        private void LoadDataGridView(DataTable data)
+        {
+            // Data grid view column setting            
+            dataGridViewMembers.DataSource = data;
+            dataGridViewMembers.DataMember = data.TableName;
+            dataGridViewMembers.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+        }
+
+        private void BtnClearData_Click(object sender, EventArgs e)
+        {
+            ResetRegistration();
         }
     }
 }

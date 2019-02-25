@@ -97,9 +97,6 @@ namespace Data_Entry_App
             }
         }
 
-        private void LblUserName_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

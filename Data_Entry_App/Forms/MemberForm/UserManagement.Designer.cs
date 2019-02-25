@@ -34,6 +34,7 @@
             this.TabPageNewUser = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.TabPageUserReg = new System.Windows.Forms.TabPage();
+            this.BtnClearData = new System.Windows.Forms.Button();
             this.lblHealthStatusRequired = new System.Windows.Forms.Label();
             this.cmbHealthStatus = new System.Windows.Forms.ComboBox();
             this.lblHealthStatus = new System.Windows.Forms.Label();
@@ -53,7 +54,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.DateTimePickerDOB = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.btn_AddUser = new System.Windows.Forms.Button();
+            this.BtnAddUser = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,6 +64,9 @@
             this.TxtLastName = new System.Windows.Forms.TextBox();
             this.TxtFirstName = new System.Windows.Forms.TextBox();
             this.TabPageMngUser = new System.Windows.Forms.TabPage();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.TxtEmailID = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
@@ -72,7 +76,7 @@
             this.BtnCheck = new System.Windows.Forms.Button();
             this.TxtCheckFile = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -107,7 +111,7 @@
             this.cmbSearchMaritalStatus = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.cmbSearchOccupation = new System.Windows.Forms.ComboBox();
+            this.cmbSearchUserRole = new System.Windows.Forms.ComboBox();
             this.BtnLogout = new System.Windows.Forms.Button();
             this.TabControlUser.SuspendLayout();
             this.TabPageNewUser.SuspendLayout();
@@ -168,6 +172,7 @@
             // 
             // TabPageUserReg
             // 
+            this.TabPageUserReg.Controls.Add(this.BtnClearData);
             this.TabPageUserReg.Controls.Add(this.lblHealthStatusRequired);
             this.TabPageUserReg.Controls.Add(this.cmbHealthStatus);
             this.TabPageUserReg.Controls.Add(this.lblHealthStatus);
@@ -187,7 +192,7 @@
             this.TabPageUserReg.Controls.Add(this.label8);
             this.TabPageUserReg.Controls.Add(this.DateTimePickerDOB);
             this.TabPageUserReg.Controls.Add(this.label7);
-            this.TabPageUserReg.Controls.Add(this.btn_AddUser);
+            this.TabPageUserReg.Controls.Add(this.BtnAddUser);
             this.TabPageUserReg.Controls.Add(this.label4);
             this.TabPageUserReg.Controls.Add(this.label3);
             this.TabPageUserReg.Controls.Add(this.label2);
@@ -203,6 +208,17 @@
             this.TabPageUserReg.TabIndex = 0;
             this.TabPageUserReg.Text = "User";
             this.TabPageUserReg.UseVisualStyleBackColor = true;
+            // 
+            // BtnClearData
+            // 
+            this.BtnClearData.Location = new System.Drawing.Point(364, 269);
+            this.BtnClearData.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnClearData.Name = "BtnClearData";
+            this.BtnClearData.Size = new System.Drawing.Size(123, 28);
+            this.BtnClearData.TabIndex = 62;
+            this.BtnClearData.Text = "Clear Data";
+            this.BtnClearData.UseVisualStyleBackColor = true;
+            this.BtnClearData.Click += new System.EventHandler(this.BtnClearData_Click);
             // 
             // lblHealthStatusRequired
             // 
@@ -407,16 +423,16 @@
             this.label7.TabIndex = 43;
             this.label7.Text = "Date of Birth";
             // 
-            // btn_AddUser
+            // BtnAddUser
             // 
-            this.btn_AddUser.Location = new System.Drawing.Point(511, 269);
-            this.btn_AddUser.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_AddUser.Name = "btn_AddUser";
-            this.btn_AddUser.Size = new System.Drawing.Size(123, 28);
-            this.btn_AddUser.TabIndex = 42;
-            this.btn_AddUser.Text = "Register User";
-            this.btn_AddUser.UseVisualStyleBackColor = true;
-            this.btn_AddUser.Click += new System.EventHandler(this.btn_AddUser_Click);
+            this.BtnAddUser.Location = new System.Drawing.Point(511, 269);
+            this.BtnAddUser.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnAddUser.Name = "BtnAddUser";
+            this.BtnAddUser.Size = new System.Drawing.Size(123, 28);
+            this.BtnAddUser.TabIndex = 42;
+            this.BtnAddUser.Text = "Register User";
+            this.BtnAddUser.UseVisualStyleBackColor = true;
+            this.BtnAddUser.Click += new System.EventHandler(this.BtnAddUser_Click);
             // 
             // label4
             // 
@@ -493,12 +509,15 @@
             // TabPageMngUser
             // 
             this.TabPageMngUser.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.TabPageMngUser.Controls.Add(this.label32);
+            this.TabPageMngUser.Controls.Add(this.label33);
+            this.TabPageMngUser.Controls.Add(this.TxtEmailID);
             this.TabPageMngUser.Controls.Add(this.label30);
             this.TabPageMngUser.Controls.Add(this.comboBox3);
             this.TabPageMngUser.Controls.Add(this.label31);
             this.TabPageMngUser.Controls.Add(this.tabControl3);
             this.TabPageMngUser.Controls.Add(this.btnUpdate);
-            this.TabPageMngUser.Controls.Add(this.btnDelete);
+            this.TabPageMngUser.Controls.Add(this.BtnDelete);
             this.TabPageMngUser.Controls.Add(this.label15);
             this.TabPageMngUser.Controls.Add(this.label16);
             this.TabPageMngUser.Controls.Add(this.label17);
@@ -531,6 +550,36 @@
             this.TabPageMngUser.Size = new System.Drawing.Size(1492, 762);
             this.TabPageMngUser.TabIndex = 1;
             this.TabPageMngUser.Text = "Search / Manage User";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.Red;
+            this.label32.Location = new System.Drawing.Point(1142, 353);
+            this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(24, 29);
+            this.label32.TabIndex = 63;
+            this.label32.Text = "*";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(1056, 353);
+            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(59, 17);
+            this.label33.TabIndex = 62;
+            this.label33.Text = "Email ID";
+            // 
+            // TxtEmailID
+            // 
+            this.TxtEmailID.Location = new System.Drawing.Point(1192, 350);
+            this.TxtEmailID.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtEmailID.Name = "TxtEmailID";
+            this.TxtEmailID.Size = new System.Drawing.Size(201, 22);
+            this.TxtEmailID.TabIndex = 61;
             // 
             // label30
             // 
@@ -627,15 +676,16 @@
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             // 
-            // btnDelete
+            // BtnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(1274, 695);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(103, 33);
-            this.btnDelete.TabIndex = 55;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Location = new System.Drawing.Point(1274, 695);
+            this.BtnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(103, 33);
+            this.BtnDelete.TabIndex = 55;
+            this.BtnDelete.Text = "Delete";
+            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // label15
             // 
@@ -654,7 +704,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(1142, 230);
+            this.label16.Location = new System.Drawing.Point(1142, 174);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(24, 29);
@@ -666,7 +716,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(1142, 284);
+            this.label17.Location = new System.Drawing.Point(1142, 233);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(24, 29);
@@ -678,7 +728,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(1142, 344);
+            this.label18.Location = new System.Drawing.Point(1142, 296);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(24, 29);
@@ -791,7 +841,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(1056, 344);
+            this.label26.Location = new System.Drawing.Point(1056, 296);
             this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(73, 17);
@@ -801,7 +851,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(1056, 286);
+            this.label27.Location = new System.Drawing.Point(1056, 235);
             this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(76, 17);
@@ -811,7 +861,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(1056, 230);
+            this.label28.Location = new System.Drawing.Point(1056, 174);
             this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(76, 17);
@@ -828,7 +878,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(1192, 341);
+            this.textBox3.Location = new System.Drawing.Point(1192, 293);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(201, 22);
@@ -836,7 +886,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(1192, 281);
+            this.textBox4.Location = new System.Drawing.Point(1192, 230);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(201, 22);
@@ -844,7 +894,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(1192, 230);
+            this.textBox5.Location = new System.Drawing.Point(1192, 174);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(201, 22);
@@ -921,7 +971,7 @@
             this.tabPage3.Controls.Add(this.cmbSearchMaritalStatus);
             this.tabPage3.Controls.Add(this.label13);
             this.tabPage3.Controls.Add(this.label14);
-            this.tabPage3.Controls.Add(this.cmbSearchOccupation);
+            this.tabPage3.Controls.Add(this.cmbSearchUserRole);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
@@ -1002,15 +1052,15 @@
             this.label14.TabIndex = 5;
             this.label14.Text = "User Role";
             // 
-            // cmbSearchOccupation
+            // cmbSearchUserRole
             // 
-            this.cmbSearchOccupation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSearchOccupation.FormattingEnabled = true;
-            this.cmbSearchOccupation.Location = new System.Drawing.Point(194, 45);
-            this.cmbSearchOccupation.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbSearchOccupation.Name = "cmbSearchOccupation";
-            this.cmbSearchOccupation.Size = new System.Drawing.Size(160, 24);
-            this.cmbSearchOccupation.TabIndex = 4;
+            this.cmbSearchUserRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSearchUserRole.FormattingEnabled = true;
+            this.cmbSearchUserRole.Location = new System.Drawing.Point(194, 45);
+            this.cmbSearchUserRole.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbSearchUserRole.Name = "cmbSearchUserRole";
+            this.cmbSearchUserRole.Size = new System.Drawing.Size(160, 24);
+            this.cmbSearchUserRole.TabIndex = 4;
             // 
             // BtnLogout
             // 
@@ -1060,7 +1110,7 @@
         private System.Windows.Forms.TabPage TabPageNewUser;
         private System.Windows.Forms.TabPage TabPageMngUser;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
@@ -1095,7 +1145,7 @@
         private System.Windows.Forms.ComboBox cmbSearchMaritalStatus;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox cmbSearchOccupation;
+        private System.Windows.Forms.ComboBox cmbSearchUserRole;
         private System.Windows.Forms.Button BtnLogout;
         private System.Windows.Forms.Button BtnCheck;
         private System.Windows.Forms.TextBox TxtCheckFile;
@@ -1118,7 +1168,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker DateTimePickerDOB;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btn_AddUser;
+        private System.Windows.Forms.Button BtnAddUser;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -1135,5 +1185,9 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox TxtEmailID;
+        private System.Windows.Forms.Button BtnClearData;
     }
 }

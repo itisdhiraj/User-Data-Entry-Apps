@@ -89,7 +89,7 @@
             this.LblUserName.Size = new System.Drawing.Size(98, 17);
             this.LblUserName.TabIndex = 2;
             this.LblUserName.Text = "User Name :";
-            this.LblUserName.Click += new System.EventHandler(this.LblUserName_Click);
+           
             // 
             // BtnClear
             // 
