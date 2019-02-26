@@ -113,6 +113,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.cmbSearchUserRole = new System.Windows.Forms.ComboBox();
             this.BtnLogout = new System.Windows.Forms.Button();
+            this.PrintReport = new System.Drawing.Printing.PrintDocument();
             this.TabControlUser.SuspendLayout();
             this.TabPageNewUser.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -909,6 +910,7 @@
             this.btnPrintPreview.TabIndex = 11;
             this.btnPrintPreview.Text = "Print Preview";
             this.btnPrintPreview.UseVisualStyleBackColor = true;
+            this.btnPrintPreview.Click += new System.EventHandler(this.BtnPrintPreview_Click);
             // 
             // btnExport
             // 
@@ -919,6 +921,7 @@
             this.btnExport.TabIndex = 10;
             this.btnExport.Text = "Export";
             this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.BtnExport_Click);
             // 
             // btnPrint
             // 
@@ -929,6 +932,7 @@
             this.btnPrint.TabIndex = 9;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
             // 
             // dataGridViewMembers
             // 
@@ -1011,6 +1015,7 @@
             this.btnRefresh.TabIndex = 9;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
             // btnSearch
             // 
@@ -1074,6 +1079,10 @@
             this.BtnLogout.UseVisualStyleBackColor = true;
             this.BtnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
             // 
+            // PrintReport
+            // 
+            this.PrintReport.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintReport_PrintPage);
+            // 
             // UserManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1084,6 +1093,7 @@
             this.Controls.Add(this.TxtHeader);
             this.Name = "UserManagement";
             this.Text = "User Management";
+            this.Load += new System.EventHandler(this.UserManagement_Load);
             this.TabControlUser.ResumeLayout(false);
             this.TabPageNewUser.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
@@ -1189,5 +1199,6 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox TxtEmailID;
         private System.Windows.Forms.Button BtnClearData;
+        private System.Drawing.Printing.PrintDocument PrintReport;
     }
 }

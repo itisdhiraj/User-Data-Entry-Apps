@@ -10,7 +10,7 @@ namespace Data_Entry_App.Data.DataAccess
         {
             get
             {
-                return ConfigurationManager.ConnectionStrings["UserDataConnection"].ToString();
+                return ConfigurationManager.ConnectionStrings["UsersDataDBConnection"].ToString();
             }
         }
     }

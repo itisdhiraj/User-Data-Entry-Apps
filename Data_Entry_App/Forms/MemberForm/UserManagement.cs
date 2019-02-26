@@ -3,17 +3,24 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Data_Entry_App.Properties;
 using Data_Entry_App.Data.BusinessServices;
+using Data_Entry_App.Data.Enums;
 
 
 namespace Data_Entry_App.Forms.MemberForm
 {
     public partial class UserManagement : Form
     {
+        /// <summary>
+        /// Instance of DataGridViewPrinter
+        /// </summary>
+        private DataGridViewPrinter dataGridViewPrinter;
+
         private int memberId ;
         private readonly IUserDataService UserDataService;
 
@@ -214,10 +221,187 @@ namespace Data_Entry_App.Forms.MemberForm
             dataGridViewMembers.DataMember = data.TableName;
             dataGridViewMembers.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
+        /// <summary>
+        /// Method to set up the printing
+        /// </summary>
+        /// <param name="isPrint">isPrint value</param>
+        /// <returns>true or false</returns>
+        private bool SetupPrinting(bool isPrint)
+        {
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.AllowCurrentPage = false;
+            printDialog.AllowPrintToFile = false;
+            printDialog.AllowSelection = false;
+            printDialog.AllowSomePages = false;
+            printDialog.PrintToFile = false;
+            printDialog.ShowHelp = false;
+            printDialog.ShowNetwork = false;
+
+            if (isPrint)
+            {
+                if (printDialog.ShowDialog() != DialogResult.OK)
+                {
+                    return false;
+                }
+            }
+
+            this.PrintReport.DocumentName = "MembersReport";
+            this.PrintReport.PrinterSettings = printDialog.PrinterSettings;
+            this.PrintReport.DefaultPageSettings = printDialog.PrinterSettings.DefaultPageSettings;
+            this.PrintReport.DefaultPageSettings.Margins = new Margins(40, 40, 40, 40);
+            this.dataGridViewPrinter = new DataGridViewPrinter(dataGridViewMembers, PrintReport, true, true, Resources.Report_Header, new Font("Tahoma", 13, FontStyle.Bold, GraphicsUnit.Point), Color.Black, true);
+            return true;
+        }
 
         private void BtnClearData_Click(object sender, EventArgs e)
         {
             ResetRegistration();
+        }
+
+        private void BtnPrint_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.SetupPrinting(true))
+                {
+                    this.PrintReport.Print();
+                }
+            }
+            catch (Exception ex)
+            {
+                this.ShowErrorMessage(ex);
+            }
+        }
+
+        private void BtnPrintPreview_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.SetupPrinting(false))
+                {
+                    PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
+                    printPreviewDialog.Document = this.PrintReport;
+                    printPreviewDialog.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                this.ShowErrorMessage(ex);
+            }
+        }
+
+        private void BtnExport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var table = (DataTable)dataGridViewMembers.DataSource;
+               
+                Microsoft.Office.Interop.Excel.Application ExcelApp
+                    = new Microsoft.Office.Interop.Excel.Application();
+
+                ExcelApp.Application.Workbooks.Add(true);
+
+                int columnIndex = 0;
+
+                foreach (DataColumn col in table.Columns)
+                {
+                    columnIndex++;
+                    ExcelApp.Cells[1, columnIndex] = col.ColumnName;
+                }
+
+                int rowIndex = 0;
+
+                foreach (DataRow row in table.Rows)
+                {
+                    rowIndex++;
+                    columnIndex = 0;
+                    foreach (DataColumn col in table.Columns)
+                    {
+                        columnIndex++;
+                        if (columnIndex == 4 || columnIndex == 5 || columnIndex == 6)
+                        {
+                            if (columnIndex == 4)
+                            {
+                                ExcelApp.Cells[rowIndex + 1, columnIndex]
+                                    = Enum.GetName(typeof(UserRole), row[col.ColumnName]);
+                            }
+
+                            if (columnIndex == 5)
+                            {
+                                ExcelApp.Cells[rowIndex + 1, columnIndex]
+                                    = Enum.GetName(typeof(MaritalStatus), row[col.ColumnName]);
+                            }
+
+                            if (columnIndex == 6)
+                            {
+                                ExcelApp.Cells[rowIndex + 1, columnIndex]
+                                    = Enum.GetName(typeof(HealthStatus), row[col.ColumnName]);
+                            }
+                        }
+                        else
+                        {
+                            ExcelApp.Cells[rowIndex + 1, columnIndex] = row[col.ColumnName].ToString();
+                        }
+                    }
+                }
+                ExcelApp.Columns.AutoFit();
+                ExcelApp.Visible = true;
+                Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelApp.ActiveSheet;
+                worksheet.Activate();
+            }
+            catch (Exception ex)
+            {
+                this.ShowErrorMessage(ex);
+            }
+        }
+        /// <summary>
+        /// Event to handle print page
+        /// </summary>
+        /// <param name="sender">sender object</param>
+        /// <param name="e">event data</param>
+        private void PrintReport_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            try
+            {
+                bool hasMorePages = this.dataGridViewPrinter.DrawDataGridView(e.Graphics);
+
+                if (hasMorePages == true)
+                {
+                    e.HasMorePages = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                this.ShowErrorMessage(ex);
+            }
+        }
+
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.ResetSearch();
+                DataTable data = this.UserDataService.GetAllUserData();
+                this.LoadDataGridView(data);
+            }
+            catch (Exception ex)
+            {
+                this.ShowErrorMessage(ex);
+            }
+        }
+
+        private void UserManagement_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                this.ResetSearch();
+                DataTable data = this.UserDataService.GetAllUserData();
+                this.LoadDataGridView(data);
+            }
+            catch (Exception ex)
+            {
+                this.ShowErrorMessage(ex);
+            }
         }
     }
 }
