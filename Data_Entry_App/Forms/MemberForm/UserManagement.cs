@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Data_Entry_App.Properties;
 using Data_Entry_App.Data.BusinessServices;
-using Data_Entry_App.Data.Enums;
 
 
 namespace Data_Entry_App.Forms.MemberForm
@@ -228,14 +223,16 @@ namespace Data_Entry_App.Forms.MemberForm
         /// <returns>true or false</returns>
         private bool SetupPrinting(bool isPrint)
         {
-            PrintDialog printDialog = new PrintDialog();
-            printDialog.AllowCurrentPage = false;
-            printDialog.AllowPrintToFile = false;
-            printDialog.AllowSelection = false;
-            printDialog.AllowSomePages = false;
-            printDialog.PrintToFile = false;
-            printDialog.ShowHelp = false;
-            printDialog.ShowNetwork = false;
+            PrintDialog printDialog = new PrintDialog
+            {
+                AllowCurrentPage = false,
+                AllowPrintToFile = false,
+                AllowSelection = false,
+                AllowSomePages = false,
+                PrintToFile = false,
+                ShowHelp = false,
+                ShowNetwork = false
+            };
 
             if (isPrint)
             {
@@ -279,8 +276,7 @@ namespace Data_Entry_App.Forms.MemberForm
             {
                 if (this.SetupPrinting(false))
                 {
-                    PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
-                    printPreviewDialog.Document = this.PrintReport;
+                    PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog {Document = this.PrintReport};
                     printPreviewDialog.ShowDialog();
                 }
             }
@@ -290,69 +286,111 @@ namespace Data_Entry_App.Forms.MemberForm
             }
         }
 
+        
         private void BtnExport_Click(object sender, EventArgs e)
         {
             try
             {
-                var table = (DataTable)dataGridViewMembers.DataSource;
-               
-                Microsoft.Office.Interop.Excel.Application ExcelApp
-                    = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel.ApplicationClass excel = new Microsoft.Office.Interop.Excel.ApplicationClass();
+                excel.Visible = true;
+                Microsoft.Office.Interop.Excel.Workbook workbook = excel.Workbooks.Add(System.Reflection.Missing.Value);
+                Microsoft.Office.Interop.Excel.Worksheet sheet1 = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets[1];
+                int StartCol = 1;
+                int StartRow = 1;
+                int j = 0, i = 0;
 
-                ExcelApp.Application.Workbooks.Add(true);
-
-                int columnIndex = 0;
-
-                foreach (DataColumn col in table.Columns)
+                //Write Headers
+                for (j = 0; j < dataGridViewMembers.Columns.Count; j++)
                 {
-                    columnIndex++;
-                    ExcelApp.Cells[1, columnIndex] = col.ColumnName;
+                    Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)sheet1.Cells[StartRow, StartCol + j];
+                    myRange.Value2 = dataGridViewMembers.Columns[j].HeaderText;
                 }
 
-                int rowIndex = 0;
+                StartRow++;
 
-                foreach (DataRow row in table.Rows)
+                //Write datagridview content
+                for (i = 0; i < dataGridViewMembers.Rows.Count; i++)
                 {
-                    rowIndex++;
-                    columnIndex = 0;
-                    foreach (DataColumn col in table.Columns)
+                    for (j = 0; j < dataGridViewMembers.Columns.Count; j++)
                     {
-                        columnIndex++;
-                        if (columnIndex == 4 || columnIndex == 5 || columnIndex == 6)
+                        try
                         {
-                            if (columnIndex == 4)
-                            {
-                                ExcelApp.Cells[rowIndex + 1, columnIndex]
-                                    = Enum.GetName(typeof(UserRole), row[col.ColumnName]);
-                            }
-
-                            if (columnIndex == 5)
-                            {
-                                ExcelApp.Cells[rowIndex + 1, columnIndex]
-                                    = Enum.GetName(typeof(MaritalStatus), row[col.ColumnName]);
-                            }
-
-                            if (columnIndex == 6)
-                            {
-                                ExcelApp.Cells[rowIndex + 1, columnIndex]
-                                    = Enum.GetName(typeof(HealthStatus), row[col.ColumnName]);
-                            }
+                            Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)sheet1.Cells[StartRow + i, StartCol + j];
+                            myRange.Value2 = dataGridViewMembers[j, i].Value == null ? "" : dataGridViewMembers[j, i].Value;
                         }
-                        else
+                        catch
                         {
-                            ExcelApp.Cells[rowIndex + 1, columnIndex] = row[col.ColumnName].ToString();
+                            ;
                         }
                     }
                 }
-                ExcelApp.Columns.AutoFit();
-                ExcelApp.Visible = true;
-                Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelApp.ActiveSheet;
-                worksheet.Activate();
             }
             catch (Exception ex)
             {
-                this.ShowErrorMessage(ex);
+                MessageBox.Show(ex.ToString());
             }
+
+            //try
+            //{
+            //    var table = (DataTable)dataGridViewMembers.DataSource;
+
+            //    Microsoft.Office.Interop.Excel.ApplicationClass ExcelApp
+            //        = new Microsoft.Office.Interop.Excel.ApplicationClass();
+
+            //    ExcelApp.Application.Workbooks.Add(true);
+
+            //    int columnIndex = 0;
+
+            //    foreach (DataColumn col in table.Columns)
+            //    {
+            //        columnIndex++;
+            //        ExcelApp.Cells[1, columnIndex] = col.ColumnName;
+            //    }
+
+            //    int rowIndex = 0;
+
+            //    foreach (DataRow row in table.Rows)
+            //    {
+            //        rowIndex++;
+            //        columnIndex = 0;
+            //        foreach (DataColumn col in table.Columns)
+            //        {
+            //            columnIndex++;
+            //            if (columnIndex == 4 || columnIndex == 5 || columnIndex == 6)
+            //            {
+            //                if (columnIndex == 4)
+            //                {
+            //                    ExcelApp.Cells[rowIndex + 1, columnIndex]
+            //                        = Enum.GetName(typeof(UserRole), row[col.ColumnName]);
+            //                }
+
+            //                if (columnIndex == 5)
+            //                {
+            //                    ExcelApp.Cells[rowIndex + 1, columnIndex]
+            //                        = Enum.GetName(typeof(MaritalStatus), row[col.ColumnName]);
+            //                }
+
+            //                if (columnIndex == 6)
+            //                {
+            //                    ExcelApp.Cells[rowIndex + 1, columnIndex]
+            //                        = Enum.GetName(typeof(HealthStatus), row[col.ColumnName]);
+            //                }
+            //            }
+            //            else
+            //            {
+            //                ExcelApp.Cells[rowIndex + 1, columnIndex] = row[col.ColumnName].ToString();
+            //            }
+            //        }
+            //    }
+            //    ExcelApp.Columns.AutoFit();
+            //    ExcelApp.Visible = true;
+            //    Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelApp.ActiveSheet;
+            //    worksheet.Activate();
+            //}
+            //catch (Exception ex)
+            //{
+            //    this.ShowErrorMessage(ex);
+            //}
         }
         /// <summary>
         /// Event to handle print page
@@ -380,7 +418,7 @@ namespace Data_Entry_App.Forms.MemberForm
         {
             try
             {
-                this.ResetSearch();
+                ResetSearch();
                 DataTable data = this.UserDataService.GetAllUserData();
                 this.LoadDataGridView(data);
             }
