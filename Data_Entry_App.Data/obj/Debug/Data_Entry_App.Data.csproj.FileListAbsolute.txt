@@ -2,7 +2,6 @@ C:\Users\i347925\Desktop\Projects\Data_Entry_App\Data_Entry_App.Data\bin\Debug\D
 C:\Users\i347925\Desktop\Projects\Data_Entry_App\Data_Entry_App.Data\bin\Debug\Data_Entry_App.Data.pdb
 C:\Users\i347925\Desktop\Projects\Data_Entry_App\Data_Entry_App.Data\bin\Debug\JetBrains.Annotations.dll
 C:\Users\i347925\Desktop\Projects\Data_Entry_App\Data_Entry_App.Data\bin\Debug\JetBrains.Annotations.xml
-C:\Users\i347925\Desktop\Projects\Data_Entry_App\Data_Entry_App.Data\obj\Debug\Data_Entry_App.Data.csprojAssemblyReference.cache
 C:\Users\i347925\Desktop\Projects\Data_Entry_App\Data_Entry_App.Data\obj\Debug\Data_Entry_App.Data.csproj.CoreCompileInputs.cache
 C:\Users\i347925\Desktop\Projects\Data_Entry_App\Data_Entry_App.Data\obj\Debug\Data_Entry_App.Data.csproj.CopyComplete
 C:\Users\i347925\Desktop\Projects\Data_Entry_App\Data_Entry_App.Data\obj\Debug\Data_Entry_App.Data.dll
