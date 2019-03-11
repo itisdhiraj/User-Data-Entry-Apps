@@ -1,6 +1,6 @@
 # Data_Entry_App
 
-In this Project, I am storing the User Data in MS Access and Retrieving in Application and saving the Report in MS Excel using C# Windows Form Application.
+In this Project, User Data is getting stored in MS Access and Retrieving in Application and export the Report in MS Excel and print using C# Windows Form Application.
 
 
 # Required Software:
