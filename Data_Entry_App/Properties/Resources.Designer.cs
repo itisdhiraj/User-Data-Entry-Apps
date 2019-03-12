@@ -178,6 +178,15 @@ namespace Data_Entry_App.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        internal static string Registration_Clear_Button_Text {
+            get {
+                return ResourceManager.GetString("Registration_Clear_Button_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date of birth.
         /// </summary>
         internal static string Registration_DateOfBirth_Label_Text {
@@ -340,6 +349,24 @@ namespace Data_Entry_App.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to User Name.
+        /// </summary>
+        internal static string Registration_UserName_Label_Text {
+            get {
+                return ResourceManager.GetString("Registration_UserName_Label_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please Enter User Name.
+        /// </summary>
+        internal static string Registration_UserName_Required_Text {
+            get {
+                return ResourceManager.GetString("Registration_UserName_Required_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User Management- Members.
         /// </summary>
         internal static string Report_Header {
@@ -367,7 +394,7 @@ namespace Data_Entry_App.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Oops! System error. Please contact administrator..
+        ///   Looks up a localized string similar to System error. Please contact your administrator..
         /// </summary>
         internal static string System_Error_Message {
             get {

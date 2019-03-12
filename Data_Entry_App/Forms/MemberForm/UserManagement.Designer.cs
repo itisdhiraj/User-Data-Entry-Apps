@@ -34,10 +34,10 @@
             this.TabPageNewUser = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.TabPageUserReg = new System.Windows.Forms.TabPage();
-            this.BtnClearData = new System.Windows.Forms.Button();
+            this.BtnClearDataReg = new System.Windows.Forms.Button();
             this.lblHealthStatusRequired = new System.Windows.Forms.Label();
             this.cmbHealthStatus = new System.Windows.Forms.ComboBox();
-            this.lblHealthStatus = new System.Windows.Forms.Label();
+            this.lblHealthStatusReg = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -45,31 +45,31 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblOccupationRequired = new System.Windows.Forms.Label();
-            this.lblOccupation = new System.Windows.Forms.Label();
+            this.lblUserRoleReg = new System.Windows.Forms.Label();
             this.CMBUserRole = new System.Windows.Forms.ComboBox();
             this.lblMaritalStatusRequired = new System.Windows.Forms.Label();
             this.cmbMaritalStatus = new System.Windows.Forms.ComboBox();
-            this.lblMaritalStatus = new System.Windows.Forms.Label();
+            this.lblMaritalStatusReg = new System.Windows.Forms.Label();
             this.TxtEmail = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblEmailIDReg = new System.Windows.Forms.Label();
             this.DateTimePickerDOB = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblDOBReg = new System.Windows.Forms.Label();
             this.BtnAddUser = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblPasswordReg = new System.Windows.Forms.Label();
+            this.lblUserNameReg = new System.Windows.Forms.Label();
+            this.lblLastNameReg = new System.Windows.Forms.Label();
+            this.lblFirstNameReg = new System.Windows.Forms.Label();
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.TxtUserName = new System.Windows.Forms.TextBox();
             this.TxtLastName = new System.Windows.Forms.TextBox();
             this.TxtFirstName = new System.Windows.Forms.TextBox();
             this.TabPageMngUser = new System.Windows.Forms.TabPage();
             this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.TxtEmailID = new System.Windows.Forms.TextBox();
+            this.lblEmailID = new System.Windows.Forms.Label();
+            this.TxtEmailIDUpdate = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label31 = new System.Windows.Forms.Label();
+            this.cmbHealthStatusUpdate = new System.Windows.Forms.ComboBox();
+            this.lblHealthStatus = new System.Windows.Forms.Label();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label29 = new System.Windows.Forms.Label();
@@ -83,21 +83,21 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblUserRole = new System.Windows.Forms.Label();
+            this.cmbUserRoleUpdate = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.cmbMaritalStatusUpdate = new System.Windows.Forms.ComboBox();
+            this.lblMaritalStatus = new System.Windows.Forms.Label();
+            this.dateTimePickerDOBUpdate = new System.Windows.Forms.DateTimePicker();
+            this.lblDOBUser = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblUserName = new System.Windows.Forms.Label();
+            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.txtPasswordUpdate = new System.Windows.Forms.TextBox();
+            this.txtUsernameUpdate = new System.Windows.Forms.TextBox();
+            this.txtLastNameUpdate = new System.Windows.Forms.TextBox();
+            this.txtFirstNameUpdate = new System.Windows.Forms.TextBox();
             this.btnPrintPreview = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -150,6 +150,7 @@
             this.TabControlUser.SelectedIndex = 0;
             this.TabControlUser.Size = new System.Drawing.Size(1500, 791);
             this.TabControlUser.TabIndex = 1;
+            this.TabControlUser.SelectedIndexChanged += new System.EventHandler(this.TabControlUser_SelectedIndexChanged);
             // 
             // TabPageNewUser
             // 
@@ -173,10 +174,10 @@
             // 
             // TabPageUserReg
             // 
-            this.TabPageUserReg.Controls.Add(this.BtnClearData);
+            this.TabPageUserReg.Controls.Add(this.BtnClearDataReg);
             this.TabPageUserReg.Controls.Add(this.lblHealthStatusRequired);
             this.TabPageUserReg.Controls.Add(this.cmbHealthStatus);
-            this.TabPageUserReg.Controls.Add(this.lblHealthStatus);
+            this.TabPageUserReg.Controls.Add(this.lblHealthStatusReg);
             this.TabPageUserReg.Controls.Add(this.label12);
             this.TabPageUserReg.Controls.Add(this.label11);
             this.TabPageUserReg.Controls.Add(this.label10);
@@ -184,20 +185,20 @@
             this.TabPageUserReg.Controls.Add(this.label6);
             this.TabPageUserReg.Controls.Add(this.label5);
             this.TabPageUserReg.Controls.Add(this.lblOccupationRequired);
-            this.TabPageUserReg.Controls.Add(this.lblOccupation);
+            this.TabPageUserReg.Controls.Add(this.lblUserRoleReg);
             this.TabPageUserReg.Controls.Add(this.CMBUserRole);
             this.TabPageUserReg.Controls.Add(this.lblMaritalStatusRequired);
             this.TabPageUserReg.Controls.Add(this.cmbMaritalStatus);
-            this.TabPageUserReg.Controls.Add(this.lblMaritalStatus);
+            this.TabPageUserReg.Controls.Add(this.lblMaritalStatusReg);
             this.TabPageUserReg.Controls.Add(this.TxtEmail);
-            this.TabPageUserReg.Controls.Add(this.label8);
+            this.TabPageUserReg.Controls.Add(this.lblEmailIDReg);
             this.TabPageUserReg.Controls.Add(this.DateTimePickerDOB);
-            this.TabPageUserReg.Controls.Add(this.label7);
+            this.TabPageUserReg.Controls.Add(this.lblDOBReg);
             this.TabPageUserReg.Controls.Add(this.BtnAddUser);
-            this.TabPageUserReg.Controls.Add(this.label4);
-            this.TabPageUserReg.Controls.Add(this.label3);
-            this.TabPageUserReg.Controls.Add(this.label2);
-            this.TabPageUserReg.Controls.Add(this.label1);
+            this.TabPageUserReg.Controls.Add(this.lblPasswordReg);
+            this.TabPageUserReg.Controls.Add(this.lblUserNameReg);
+            this.TabPageUserReg.Controls.Add(this.lblLastNameReg);
+            this.TabPageUserReg.Controls.Add(this.lblFirstNameReg);
             this.TabPageUserReg.Controls.Add(this.TxtPassword);
             this.TabPageUserReg.Controls.Add(this.TxtUserName);
             this.TabPageUserReg.Controls.Add(this.TxtLastName);
@@ -210,16 +211,16 @@
             this.TabPageUserReg.Text = "User";
             this.TabPageUserReg.UseVisualStyleBackColor = true;
             // 
-            // BtnClearData
+            // BtnClearDataReg
             // 
-            this.BtnClearData.Location = new System.Drawing.Point(364, 269);
-            this.BtnClearData.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnClearData.Name = "BtnClearData";
-            this.BtnClearData.Size = new System.Drawing.Size(123, 28);
-            this.BtnClearData.TabIndex = 62;
-            this.BtnClearData.Text = "Clear Data";
-            this.BtnClearData.UseVisualStyleBackColor = true;
-            this.BtnClearData.Click += new System.EventHandler(this.BtnClearData_Click);
+            this.BtnClearDataReg.Location = new System.Drawing.Point(364, 269);
+            this.BtnClearDataReg.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnClearDataReg.Name = "BtnClearDataReg";
+            this.BtnClearDataReg.Size = new System.Drawing.Size(123, 28);
+            this.BtnClearDataReg.TabIndex = 62;
+            this.BtnClearDataReg.Text = "Clear Data";
+            this.BtnClearDataReg.UseVisualStyleBackColor = true;
+            this.BtnClearDataReg.Click += new System.EventHandler(this.BtnClearDataReg_Click);
             // 
             // lblHealthStatusRequired
             // 
@@ -243,15 +244,15 @@
             this.cmbHealthStatus.Size = new System.Drawing.Size(201, 24);
             this.cmbHealthStatus.TabIndex = 59;
             // 
-            // lblHealthStatus
+            // lblHealthStatusReg
             // 
-            this.lblHealthStatus.AutoSize = true;
-            this.lblHealthStatus.Location = new System.Drawing.Point(9, 264);
-            this.lblHealthStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblHealthStatus.Name = "lblHealthStatus";
-            this.lblHealthStatus.Size = new System.Drawing.Size(91, 17);
-            this.lblHealthStatus.TabIndex = 60;
-            this.lblHealthStatus.Text = "Health status";
+            this.lblHealthStatusReg.AutoSize = true;
+            this.lblHealthStatusReg.Location = new System.Drawing.Point(9, 264);
+            this.lblHealthStatusReg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHealthStatusReg.Name = "lblHealthStatusReg";
+            this.lblHealthStatusReg.Size = new System.Drawing.Size(91, 17);
+            this.lblHealthStatusReg.TabIndex = 60;
+            this.lblHealthStatusReg.Text = "Health status";
             // 
             // label12
             // 
@@ -337,15 +338,15 @@
             this.lblOccupationRequired.TabIndex = 52;
             this.lblOccupationRequired.Text = "*";
             // 
-            // lblOccupation
+            // lblUserRoleReg
             // 
-            this.lblOccupation.AutoSize = true;
-            this.lblOccupation.Location = new System.Drawing.Point(384, 219);
-            this.lblOccupation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblOccupation.Name = "lblOccupation";
-            this.lblOccupation.Size = new System.Drawing.Size(71, 17);
-            this.lblOccupation.TabIndex = 51;
-            this.lblOccupation.Text = "User Role";
+            this.lblUserRoleReg.AutoSize = true;
+            this.lblUserRoleReg.Location = new System.Drawing.Point(384, 219);
+            this.lblUserRoleReg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserRoleReg.Name = "lblUserRoleReg";
+            this.lblUserRoleReg.Size = new System.Drawing.Size(71, 17);
+            this.lblUserRoleReg.TabIndex = 51;
+            this.lblUserRoleReg.Text = "User Role";
             // 
             // CMBUserRole
             // 
@@ -379,15 +380,15 @@
             this.cmbMaritalStatus.Size = new System.Drawing.Size(201, 24);
             this.cmbMaritalStatus.TabIndex = 47;
             // 
-            // lblMaritalStatus
+            // lblMaritalStatusReg
             // 
-            this.lblMaritalStatus.AutoSize = true;
-            this.lblMaritalStatus.Location = new System.Drawing.Point(384, 37);
-            this.lblMaritalStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMaritalStatus.Name = "lblMaritalStatus";
-            this.lblMaritalStatus.Size = new System.Drawing.Size(92, 17);
-            this.lblMaritalStatus.TabIndex = 48;
-            this.lblMaritalStatus.Text = "Marital status";
+            this.lblMaritalStatusReg.AutoSize = true;
+            this.lblMaritalStatusReg.Location = new System.Drawing.Point(384, 37);
+            this.lblMaritalStatusReg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMaritalStatusReg.Name = "lblMaritalStatusReg";
+            this.lblMaritalStatusReg.Size = new System.Drawing.Size(92, 17);
+            this.lblMaritalStatusReg.TabIndex = 48;
+            this.lblMaritalStatusReg.Text = "Marital status";
             // 
             // TxtEmail
             // 
@@ -397,15 +398,15 @@
             this.TxtEmail.Size = new System.Drawing.Size(201, 22);
             this.TxtEmail.TabIndex = 46;
             // 
-            // label8
+            // lblEmailIDReg
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(384, 90);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 17);
-            this.label8.TabIndex = 45;
-            this.label8.Text = "Email - ID";
+            this.lblEmailIDReg.AutoSize = true;
+            this.lblEmailIDReg.Location = new System.Drawing.Point(384, 90);
+            this.lblEmailIDReg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmailIDReg.Name = "lblEmailIDReg";
+            this.lblEmailIDReg.Size = new System.Drawing.Size(68, 17);
+            this.lblEmailIDReg.TabIndex = 45;
+            this.lblEmailIDReg.Text = "Email - ID";
             // 
             // DateTimePickerDOB
             // 
@@ -414,15 +415,15 @@
             this.DateTimePickerDOB.Size = new System.Drawing.Size(201, 22);
             this.DateTimePickerDOB.TabIndex = 44;
             // 
-            // label7
+            // lblDOBReg
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(384, 151);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(87, 17);
-            this.label7.TabIndex = 43;
-            this.label7.Text = "Date of Birth";
+            this.lblDOBReg.AutoSize = true;
+            this.lblDOBReg.Location = new System.Drawing.Point(384, 151);
+            this.lblDOBReg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDOBReg.Name = "lblDOBReg";
+            this.lblDOBReg.Size = new System.Drawing.Size(87, 17);
+            this.lblDOBReg.TabIndex = 43;
+            this.lblDOBReg.Text = "Date of Birth";
             // 
             // BtnAddUser
             // 
@@ -435,45 +436,45 @@
             this.BtnAddUser.UseVisualStyleBackColor = true;
             this.BtnAddUser.Click += new System.EventHandler(this.BtnAddUser_Click);
             // 
-            // label4
+            // lblPasswordReg
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 210);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 17);
-            this.label4.TabIndex = 41;
-            this.label4.Text = "Password";
+            this.lblPasswordReg.AutoSize = true;
+            this.lblPasswordReg.Location = new System.Drawing.Point(9, 210);
+            this.lblPasswordReg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPasswordReg.Name = "lblPasswordReg";
+            this.lblPasswordReg.Size = new System.Drawing.Size(69, 17);
+            this.lblPasswordReg.TabIndex = 41;
+            this.lblPasswordReg.Text = "Password";
             // 
-            // label3
+            // lblUserNameReg
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 151);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 17);
-            this.label3.TabIndex = 40;
-            this.label3.Text = "Username";
+            this.lblUserNameReg.AutoSize = true;
+            this.lblUserNameReg.Location = new System.Drawing.Point(12, 151);
+            this.lblUserNameReg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserNameReg.Name = "lblUserNameReg";
+            this.lblUserNameReg.Size = new System.Drawing.Size(73, 17);
+            this.lblUserNameReg.TabIndex = 40;
+            this.lblUserNameReg.Text = "Username";
             // 
-            // label2
+            // lblLastNameReg
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 90);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 17);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "Last Name";
+            this.lblLastNameReg.AutoSize = true;
+            this.lblLastNameReg.Location = new System.Drawing.Point(9, 90);
+            this.lblLastNameReg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLastNameReg.Name = "lblLastNameReg";
+            this.lblLastNameReg.Size = new System.Drawing.Size(76, 17);
+            this.lblLastNameReg.TabIndex = 39;
+            this.lblLastNameReg.Text = "Last Name";
             // 
-            // label1
+            // lblFirstNameReg
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 30);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 17);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "First Name";
+            this.lblFirstNameReg.AutoSize = true;
+            this.lblFirstNameReg.Location = new System.Drawing.Point(9, 30);
+            this.lblFirstNameReg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFirstNameReg.Name = "lblFirstNameReg";
+            this.lblFirstNameReg.Size = new System.Drawing.Size(76, 17);
+            this.lblFirstNameReg.TabIndex = 38;
+            this.lblFirstNameReg.Text = "First Name";
             // 
             // TxtPassword
             // 
@@ -511,11 +512,11 @@
             // 
             this.TabPageMngUser.BackColor = System.Drawing.Color.LightSteelBlue;
             this.TabPageMngUser.Controls.Add(this.label32);
-            this.TabPageMngUser.Controls.Add(this.label33);
-            this.TabPageMngUser.Controls.Add(this.TxtEmailID);
+            this.TabPageMngUser.Controls.Add(this.lblEmailID);
+            this.TabPageMngUser.Controls.Add(this.TxtEmailIDUpdate);
             this.TabPageMngUser.Controls.Add(this.label30);
-            this.TabPageMngUser.Controls.Add(this.comboBox3);
-            this.TabPageMngUser.Controls.Add(this.label31);
+            this.TabPageMngUser.Controls.Add(this.cmbHealthStatusUpdate);
+            this.TabPageMngUser.Controls.Add(this.lblHealthStatus);
             this.TabPageMngUser.Controls.Add(this.tabControl3);
             this.TabPageMngUser.Controls.Add(this.btnUpdate);
             this.TabPageMngUser.Controls.Add(this.BtnDelete);
@@ -525,21 +526,21 @@
             this.TabPageMngUser.Controls.Add(this.label18);
             this.TabPageMngUser.Controls.Add(this.label19);
             this.TabPageMngUser.Controls.Add(this.label20);
-            this.TabPageMngUser.Controls.Add(this.label21);
-            this.TabPageMngUser.Controls.Add(this.comboBox1);
+            this.TabPageMngUser.Controls.Add(this.lblUserRole);
+            this.TabPageMngUser.Controls.Add(this.cmbUserRoleUpdate);
             this.TabPageMngUser.Controls.Add(this.label22);
-            this.TabPageMngUser.Controls.Add(this.comboBox2);
-            this.TabPageMngUser.Controls.Add(this.label23);
-            this.TabPageMngUser.Controls.Add(this.dateTimePicker2);
-            this.TabPageMngUser.Controls.Add(this.label24);
-            this.TabPageMngUser.Controls.Add(this.label25);
-            this.TabPageMngUser.Controls.Add(this.label26);
-            this.TabPageMngUser.Controls.Add(this.label27);
-            this.TabPageMngUser.Controls.Add(this.label28);
-            this.TabPageMngUser.Controls.Add(this.textBox2);
-            this.TabPageMngUser.Controls.Add(this.textBox3);
-            this.TabPageMngUser.Controls.Add(this.textBox4);
-            this.TabPageMngUser.Controls.Add(this.textBox5);
+            this.TabPageMngUser.Controls.Add(this.cmbMaritalStatusUpdate);
+            this.TabPageMngUser.Controls.Add(this.lblMaritalStatus);
+            this.TabPageMngUser.Controls.Add(this.dateTimePickerDOBUpdate);
+            this.TabPageMngUser.Controls.Add(this.lblDOBUser);
+            this.TabPageMngUser.Controls.Add(this.lblPassword);
+            this.TabPageMngUser.Controls.Add(this.lblUserName);
+            this.TabPageMngUser.Controls.Add(this.lblLastName);
+            this.TabPageMngUser.Controls.Add(this.lblFirstName);
+            this.TabPageMngUser.Controls.Add(this.txtPasswordUpdate);
+            this.TabPageMngUser.Controls.Add(this.txtUsernameUpdate);
+            this.TabPageMngUser.Controls.Add(this.txtLastNameUpdate);
+            this.TabPageMngUser.Controls.Add(this.txtFirstNameUpdate);
             this.TabPageMngUser.Controls.Add(this.btnPrintPreview);
             this.TabPageMngUser.Controls.Add(this.btnExport);
             this.TabPageMngUser.Controls.Add(this.btnPrint);
@@ -564,23 +565,23 @@
             this.label32.TabIndex = 63;
             this.label32.Text = "*";
             // 
-            // label33
+            // lblEmailID
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(1056, 353);
-            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(59, 17);
-            this.label33.TabIndex = 62;
-            this.label33.Text = "Email ID";
+            this.lblEmailID.AutoSize = true;
+            this.lblEmailID.Location = new System.Drawing.Point(1056, 353);
+            this.lblEmailID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmailID.Name = "lblEmailID";
+            this.lblEmailID.Size = new System.Drawing.Size(59, 17);
+            this.lblEmailID.TabIndex = 62;
+            this.lblEmailID.Text = "Email ID";
             // 
-            // TxtEmailID
+            // TxtEmailIDUpdate
             // 
-            this.TxtEmailID.Location = new System.Drawing.Point(1192, 350);
-            this.TxtEmailID.Margin = new System.Windows.Forms.Padding(4);
-            this.TxtEmailID.Name = "TxtEmailID";
-            this.TxtEmailID.Size = new System.Drawing.Size(201, 22);
-            this.TxtEmailID.TabIndex = 61;
+            this.TxtEmailIDUpdate.Location = new System.Drawing.Point(1192, 350);
+            this.TxtEmailIDUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtEmailIDUpdate.Name = "TxtEmailIDUpdate";
+            this.TxtEmailIDUpdate.Size = new System.Drawing.Size(201, 22);
+            this.TxtEmailIDUpdate.TabIndex = 61;
             // 
             // label30
             // 
@@ -594,25 +595,25 @@
             this.label30.TabIndex = 60;
             this.label30.Text = "*";
             // 
-            // comboBox3
+            // cmbHealthStatusUpdate
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(1192, 634);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(201, 24);
-            this.comboBox3.TabIndex = 58;
+            this.cmbHealthStatusUpdate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbHealthStatusUpdate.FormattingEnabled = true;
+            this.cmbHealthStatusUpdate.Location = new System.Drawing.Point(1192, 634);
+            this.cmbHealthStatusUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbHealthStatusUpdate.Name = "cmbHealthStatusUpdate";
+            this.cmbHealthStatusUpdate.Size = new System.Drawing.Size(201, 24);
+            this.cmbHealthStatusUpdate.TabIndex = 58;
             // 
-            // label31
+            // lblHealthStatus
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(1056, 633);
-            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(91, 17);
-            this.label31.TabIndex = 59;
-            this.label31.Text = "Health status";
+            this.lblHealthStatus.AutoSize = true;
+            this.lblHealthStatus.Location = new System.Drawing.Point(1056, 633);
+            this.lblHealthStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHealthStatus.Name = "lblHealthStatus";
+            this.lblHealthStatus.Size = new System.Drawing.Size(91, 17);
+            this.lblHealthStatus.TabIndex = 59;
+            this.lblHealthStatus.Text = "Health status";
             // 
             // tabControl3
             // 
@@ -676,6 +677,7 @@
             this.btnUpdate.TabIndex = 56;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // BtnDelete
             // 
@@ -760,25 +762,25 @@
             this.label20.TabIndex = 49;
             this.label20.Text = "*";
             // 
-            // label21
+            // lblUserRole
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(1056, 521);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(71, 17);
-            this.label21.TabIndex = 48;
-            this.label21.Text = "User Role";
+            this.lblUserRole.AutoSize = true;
+            this.lblUserRole.Location = new System.Drawing.Point(1056, 521);
+            this.lblUserRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserRole.Name = "lblUserRole";
+            this.lblUserRole.Size = new System.Drawing.Size(71, 17);
+            this.lblUserRole.TabIndex = 48;
+            this.lblUserRole.Text = "User Role";
             // 
-            // comboBox1
+            // cmbUserRoleUpdate
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1192, 515);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(201, 24);
-            this.comboBox1.TabIndex = 47;
+            this.cmbUserRoleUpdate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUserRoleUpdate.FormattingEnabled = true;
+            this.cmbUserRoleUpdate.Location = new System.Drawing.Point(1192, 515);
+            this.cmbUserRoleUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbUserRoleUpdate.Name = "cmbUserRoleUpdate";
+            this.cmbUserRoleUpdate.Size = new System.Drawing.Size(201, 24);
+            this.cmbUserRoleUpdate.TabIndex = 47;
             // 
             // label22
             // 
@@ -792,114 +794,114 @@
             this.label22.TabIndex = 46;
             this.label22.Text = "*";
             // 
-            // comboBox2
+            // cmbMaritalStatusUpdate
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(1192, 405);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(201, 24);
-            this.comboBox2.TabIndex = 44;
+            this.cmbMaritalStatusUpdate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMaritalStatusUpdate.FormattingEnabled = true;
+            this.cmbMaritalStatusUpdate.Location = new System.Drawing.Point(1192, 405);
+            this.cmbMaritalStatusUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbMaritalStatusUpdate.Name = "cmbMaritalStatusUpdate";
+            this.cmbMaritalStatusUpdate.Size = new System.Drawing.Size(201, 24);
+            this.cmbMaritalStatusUpdate.TabIndex = 44;
             // 
-            // label23
+            // lblMaritalStatus
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(1056, 408);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(92, 17);
-            this.label23.TabIndex = 45;
-            this.label23.Text = "Marital status";
+            this.lblMaritalStatus.AutoSize = true;
+            this.lblMaritalStatus.Location = new System.Drawing.Point(1056, 408);
+            this.lblMaritalStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMaritalStatus.Name = "lblMaritalStatus";
+            this.lblMaritalStatus.Size = new System.Drawing.Size(92, 17);
+            this.lblMaritalStatus.TabIndex = 45;
+            this.lblMaritalStatus.Text = "Marital status";
             // 
-            // dateTimePicker2
+            // dateTimePickerDOBUpdate
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(1192, 466);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(201, 22);
-            this.dateTimePicker2.TabIndex = 43;
+            this.dateTimePickerDOBUpdate.Location = new System.Drawing.Point(1192, 466);
+            this.dateTimePickerDOBUpdate.Name = "dateTimePickerDOBUpdate";
+            this.dateTimePickerDOBUpdate.Size = new System.Drawing.Size(201, 22);
+            this.dateTimePickerDOBUpdate.TabIndex = 43;
             // 
-            // label24
+            // lblDOBUser
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(1056, 466);
-            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(87, 17);
-            this.label24.TabIndex = 42;
-            this.label24.Text = "Date of Birth";
+            this.lblDOBUser.AutoSize = true;
+            this.lblDOBUser.Location = new System.Drawing.Point(1056, 466);
+            this.lblDOBUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDOBUser.Name = "lblDOBUser";
+            this.lblDOBUser.Size = new System.Drawing.Size(87, 17);
+            this.lblDOBUser.TabIndex = 42;
+            this.lblDOBUser.Text = "Date of Birth";
             // 
-            // label25
+            // lblPassword
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(1056, 579);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(69, 17);
-            this.label25.TabIndex = 41;
-            this.label25.Text = "Password";
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(1056, 579);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(69, 17);
+            this.lblPassword.TabIndex = 41;
+            this.lblPassword.Text = "Password";
             // 
-            // label26
+            // lblUserName
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(1056, 296);
-            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(73, 17);
-            this.label26.TabIndex = 40;
-            this.label26.Text = "Username";
+            this.lblUserName.AutoSize = true;
+            this.lblUserName.Location = new System.Drawing.Point(1056, 296);
+            this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(73, 17);
+            this.lblUserName.TabIndex = 40;
+            this.lblUserName.Text = "Username";
             // 
-            // label27
+            // lblLastName
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(1056, 235);
-            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(76, 17);
-            this.label27.TabIndex = 39;
-            this.label27.Text = "Last Name";
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.Location = new System.Drawing.Point(1056, 235);
+            this.lblLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(76, 17);
+            this.lblLastName.TabIndex = 39;
+            this.lblLastName.Text = "Last Name";
             // 
-            // label28
+            // lblFirstName
             // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(1056, 174);
-            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(76, 17);
-            this.label28.TabIndex = 38;
-            this.label28.Text = "First Name";
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Location = new System.Drawing.Point(1056, 174);
+            this.lblFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(76, 17);
+            this.lblFirstName.TabIndex = 38;
+            this.lblFirstName.Text = "First Name";
             // 
-            // textBox2
+            // txtPasswordUpdate
             // 
-            this.textBox2.Location = new System.Drawing.Point(1192, 576);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(201, 22);
-            this.textBox2.TabIndex = 37;
+            this.txtPasswordUpdate.Location = new System.Drawing.Point(1192, 576);
+            this.txtPasswordUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPasswordUpdate.Name = "txtPasswordUpdate";
+            this.txtPasswordUpdate.Size = new System.Drawing.Size(201, 22);
+            this.txtPasswordUpdate.TabIndex = 37;
             // 
-            // textBox3
+            // txtUsernameUpdate
             // 
-            this.textBox3.Location = new System.Drawing.Point(1192, 293);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(201, 22);
-            this.textBox3.TabIndex = 36;
+            this.txtUsernameUpdate.Location = new System.Drawing.Point(1192, 293);
+            this.txtUsernameUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUsernameUpdate.Name = "txtUsernameUpdate";
+            this.txtUsernameUpdate.Size = new System.Drawing.Size(201, 22);
+            this.txtUsernameUpdate.TabIndex = 36;
             // 
-            // textBox4
+            // txtLastNameUpdate
             // 
-            this.textBox4.Location = new System.Drawing.Point(1192, 230);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(201, 22);
-            this.textBox4.TabIndex = 35;
+            this.txtLastNameUpdate.Location = new System.Drawing.Point(1192, 230);
+            this.txtLastNameUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLastNameUpdate.Name = "txtLastNameUpdate";
+            this.txtLastNameUpdate.Size = new System.Drawing.Size(201, 22);
+            this.txtLastNameUpdate.TabIndex = 35;
             // 
-            // textBox5
+            // txtFirstNameUpdate
             // 
-            this.textBox5.Location = new System.Drawing.Point(1192, 174);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(201, 22);
-            this.textBox5.TabIndex = 34;
+            this.txtFirstNameUpdate.Location = new System.Drawing.Point(1192, 174);
+            this.txtFirstNameUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFirstNameUpdate.Name = "txtFirstNameUpdate";
+            this.txtFirstNameUpdate.Size = new System.Drawing.Size(201, 22);
+            this.txtFirstNameUpdate.TabIndex = 34;
             // 
             // btnPrintPreview
             // 
@@ -954,6 +956,8 @@
             this.dataGridViewMembers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewMembers.Size = new System.Drawing.Size(981, 498);
             this.dataGridViewMembers.TabIndex = 6;
+            this.dataGridViewMembers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMembers_CellContentClick);
+            this.dataGridViewMembers.SelectionChanged += new System.EventHandler(this.dataGridViewMembers_SelectionChanged);
             // 
             // tabControl1
             // 
@@ -1025,6 +1029,7 @@
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // cmbSearchMaritalStatus
             // 
@@ -1126,21 +1131,21 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lblUserRole;
+        private System.Windows.Forms.ComboBox cmbUserRoleUpdate;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.ComboBox cmbMaritalStatusUpdate;
+        private System.Windows.Forms.Label lblMaritalStatus;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDOBUpdate;
+        private System.Windows.Forms.Label lblDOBUser;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.Label lblLastName;
+        private System.Windows.Forms.Label lblFirstName;
+        private System.Windows.Forms.TextBox txtPasswordUpdate;
+        private System.Windows.Forms.TextBox txtUsernameUpdate;
+        private System.Windows.Forms.TextBox txtLastNameUpdate;
+        private System.Windows.Forms.TextBox txtFirstNameUpdate;
         private System.Windows.Forms.Button btnPrintPreview;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnPrint;
@@ -1168,20 +1173,20 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblOccupationRequired;
-        private System.Windows.Forms.Label lblOccupation;
+        private System.Windows.Forms.Label lblUserRoleReg;
         private System.Windows.Forms.ComboBox CMBUserRole;
         private System.Windows.Forms.Label lblMaritalStatusRequired;
         private System.Windows.Forms.ComboBox cmbMaritalStatus;
-        private System.Windows.Forms.Label lblMaritalStatus;
+        private System.Windows.Forms.Label lblMaritalStatusReg;
         private System.Windows.Forms.TextBox TxtEmail;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblEmailIDReg;
         private System.Windows.Forms.DateTimePicker DateTimePickerDOB;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblDOBReg;
         private System.Windows.Forms.Button BtnAddUser;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPasswordReg;
+        private System.Windows.Forms.Label lblUserNameReg;
+        private System.Windows.Forms.Label lblLastNameReg;
+        private System.Windows.Forms.Label lblFirstNameReg;
         private System.Windows.Forms.TextBox TxtPassword;
         private System.Windows.Forms.TextBox TxtUserName;
         private System.Windows.Forms.TextBox TxtLastName;
@@ -1190,14 +1195,14 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label lblHealthStatusRequired;
         private System.Windows.Forms.ComboBox cmbHealthStatus;
-        private System.Windows.Forms.Label lblHealthStatus;
+        private System.Windows.Forms.Label lblHealthStatusReg;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.ComboBox cmbHealthStatusUpdate;
+        private System.Windows.Forms.Label lblHealthStatus;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.TextBox TxtEmailID;
-        private System.Windows.Forms.Button BtnClearData;
+        private System.Windows.Forms.Label lblEmailID;
+        private System.Windows.Forms.TextBox TxtEmailIDUpdate;
+        private System.Windows.Forms.Button BtnClearDataReg;
         private System.Drawing.Printing.PrintDocument PrintReport;
     }
 }
